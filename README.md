@@ -1,5 +1,5 @@
 # Talksuite PoT
-## Drift -> Talksuite webhook bridge
+## Drift <-> Talksuite webhook bridge
 
 This repo contains the code, template, dialogues and package to one click deploy a Drift to talksuite bridge. Drift is a chat marketing and customer support product & talksuite is a enterprise bot building platform.
 
