@@ -25,6 +25,9 @@ You will also need to deploy the appropriate dialogues to the talksuite organisa
 * Download or checkout this repo.
 * Run the following command in the root folder `ts import-content ./dialogues/` and choose the organisation you want to use.
 
-In talksuite your bot should be configured with the webhook secret `talksuite<3drift` and have a constant called `driftToken` with your OAuth Access token which can be found in the Drift App config screen.
+In talksuite your bot should be configured with:
+* The webhook secret should be `talksuite<3drift`
+* A constant called `driftToken` with your OAuth Access token which can be found in the Drift App config screen.
+* The "Handoff" project
 
 ![](./readme-assets/token.png)
