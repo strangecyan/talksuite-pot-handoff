@@ -13,7 +13,7 @@ module.exports = async function (context, req) {
 
     let dialogue = 'newDriftMessage';
     if (message.startsWith('/')) {
-        dialogue = 'newDriftCommand'
+        dialogue = 'newDriftCommand';
     }
 
     let payload = {name: dialogue, address: conversationId, value: { message: message }};

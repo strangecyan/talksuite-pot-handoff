@@ -1,0 +1,31 @@
+{
+  "attributes": {
+    "json": {
+      "id": "Util: set identifier",
+      "trigger": {
+        "type": "nestedDialogue"
+      },
+      "nodes": [
+        {
+          "type": "operation",
+          "operation": {
+            "method": [
+              {
+                "var": "User.Settings/Identifiers"
+              },
+              "addItem",
+              [
+                {
+                  "var": "id"
+                }
+              ]
+            ]
+          },
+          "output": "User.Settings/Identifiers"
+        }
+      ]
+    }
+  },
+  "type": "dialogue",
+  "id": "e9abedbd-a36a-4728-be81-d757101a2df9"
+}

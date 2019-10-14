@@ -1,0 +1,48 @@
+{
+  "attributes": {
+    "json": {
+      "id": "Drift: send message",
+      "trigger": {
+        "type": "nestedDialogue"
+      },
+      "nodes": [
+        {
+          "type": "action",
+          "service": {
+            "url": "https://driftapi.com/conversations/{conversation/driftConversationId}/messages",
+            "method": "POST",
+            "headers": {
+              "Accept": "application/json",
+              "Authorization": "Bearer {Bot/driftToken}"
+            },
+            "body": {
+              "type": "chat",
+              "body": "Visitor: {message}"
+            }
+          }
+        },
+        {
+          "type": "decision",
+          "rule": {
+            "!==": [
+              {
+                "var": "dialogue/lastApiStatusCode"
+              },
+              200
+            ]
+          },
+          "passNode": "error",
+          "failNode": "dialogue.stop"
+        },
+        {
+          "id": "error",
+          "type": "message",
+          "message": "Error! {error}"
+        }
+      ]
+    }
+  },
+  "projectId": "07a2d36c-c64e-4f51-b830-2efcd9d14b0e",
+  "type": "dialogue",
+  "id": "6cfd986e-210c-4317-94e0-abf718f86c69"
+}

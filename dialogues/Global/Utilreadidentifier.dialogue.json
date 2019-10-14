@@ -1,0 +1,21 @@
+{
+  "attributes": {
+    "json": {
+      "id": "Util: read identifier",
+      "trigger": {
+        "type": "message",
+        "values": [
+          "Debug: read identifier"
+        ]
+      },
+      "nodes": [
+        {
+          "type": "message",
+          "message": "{User.Settings/Identifiers/0} {User.Settings/Identifiers/1}"
+        }
+      ]
+    }
+  },
+  "type": "dialogue",
+  "id": "6763f369-bb16-4dd1-a856-006b4878b4f2"
+}

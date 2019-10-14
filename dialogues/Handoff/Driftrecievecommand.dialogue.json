@@ -1,0 +1,21 @@
+{
+  "attributes": {
+    "json": {
+      "id": "Drift: recieve command",
+      "trigger": {
+        "type": "customEvent",
+        "name": "newDriftCommand",
+        "output": "value"
+      },
+      "nodes": [
+        {
+          "type": "message",
+          "message": "Command: {value/message}"
+        }
+      ]
+    }
+  },
+  "projectId": "07a2d36c-c64e-4f51-b830-2efcd9d14b0e",
+  "type": "dialogue",
+  "id": "737b2f33-2043-4d20-836f-0ad733b50ad7"
+}

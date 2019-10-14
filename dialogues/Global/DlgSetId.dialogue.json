@@ -1,0 +1,32 @@
+{
+  "attributes": {
+    "json": {
+      "id": "Dlg: Set Id",
+      "trigger": {
+        "type": "message",
+        "values": [
+          "set id"
+        ]
+      },
+      "nodes": [
+        {
+          "type": "stringPrompt",
+          "message": "What do you want your ID to be?",
+          "retryMessage": "Error message",
+          "output": "newid"
+        },
+        {
+          "type": "dialogue",
+          "dialogueId": "Util: set identifier",
+          "inputs": {
+            "id": {
+              "var": "newid"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "type": "dialogue",
+  "id": "2667d1c0-f2c4-4b8c-957c-0bf75a62160d"
+}

@@ -1,0 +1,59 @@
+{
+  "attributes": {
+    "json": {
+      "id": "Handoff: No trigger match",
+      "trigger": {
+        "type": "event",
+        "event": "noTriggerMatch"
+      },
+      "nodes": [
+        {
+          "type": "decision",
+          "rule": {
+            "!==": [
+              {
+                "var": "conversation/driftConversationId"
+              },
+              null
+            ]
+          },
+          "passNode": "isInAConversation",
+          "failNode": "isntInAConversation"
+        },
+        {
+          "id": "isntInAConversation",
+          "type": "message",
+          "message": "No clue what you've said."
+        },
+        {
+          "type": "stringPrompt",
+          "message": "Before I can send you over to a person, can I get your email address?",
+          "retryMessage": "Sorry, I didn't get that.",
+          "output": "userEmail"
+        },
+        {
+          "type": "dialogue",
+          "dialogueId": "Drift: make conversation",
+          "inputs": {
+            "userEmail": {
+              "var": "userEmail"
+            }
+          }
+        },
+        {
+          "id": "isInAConversation",
+          "type": "dialogue",
+          "dialogueId": "Drift: send message",
+          "inputs": {
+            "message": {
+              "var": "dialogue/triggerUtterance"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "projectId": "07a2d36c-c64e-4f51-b830-2efcd9d14b0e",
+  "type": "dialogue",
+  "id": "4b2b6be6-1d47-47bf-b90c-0e51572fd0f8"
+}

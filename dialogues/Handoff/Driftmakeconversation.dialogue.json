@@ -1,0 +1,75 @@
+{
+  "attributes": {
+    "json": {
+      "id": "Drift: make conversation",
+      "trigger": {
+        "type": "nestedDialogue"
+      },
+      "nodes": [
+        {
+          "type": "action",
+          "service": {
+            "url": "https://driftapi.com/conversations/new",
+            "method": "POST",
+            "headers": {
+              "Accept": "application/json",
+              "Authorization": "Bearer {Bot/driftToken}"
+            },
+            "body": {
+              "email": "{userEmail}",
+              "message": {
+                "body": "We've got a live one. New lead from the bot, let's resume on drift!",
+                "attributes": {
+                  "integrationSource": "Conversation through talksuite"
+                }
+              }
+            }
+          },
+          "outputs": {
+            "body": {
+              "conversationId": "id",
+              "error": "error/message"
+            }
+          }
+        },
+        {
+          "type": "decision",
+          "rule": {
+            "!==": [
+              {
+                "var": "dialogue/lastApiStatusCode"
+              },
+              200
+            ]
+          },
+          "passNode": "error"
+        },
+        {
+          "type": "operation",
+          "operation": {
+            "var": "conversationId"
+          },
+          "output": "conversation/driftConversationId"
+        },
+        {
+          "type": "dialogue",
+          "dialogueId": "Util: set identifier",
+          "inputs": {
+            "id": {
+              "var": "conversation/driftConversationId"
+            }
+          },
+          "nextNode": "dialogue.stop"
+        },
+        {
+          "id": "error",
+          "type": "message",
+          "message": "Error! {error}"
+        }
+      ]
+    }
+  },
+  "projectId": "07a2d36c-c64e-4f51-b830-2efcd9d14b0e",
+  "type": "dialogue",
+  "id": "8a01936c-daa1-405c-a06e-f99b48ac7a16"
+}
