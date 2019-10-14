@@ -89,7 +89,7 @@
                         },
                         {
                             "name": "WEBSITE_RUN_FROM_PACKAGE",
-                            "value": "https://shibayan.blob.core.windows.net/azure-keyvault-letsencrypt/latest.zip"
+                            "value": "https://github.com/strangecyan/talksuite-proof-of-tech/releases/download/1.0.0/Archive.zip"
                         },
                         {
                             "name": "FUNCTIONS_EXTENSION_VERSION",
